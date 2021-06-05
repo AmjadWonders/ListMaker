@@ -16,6 +16,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__)) #current directory
 
 num = int(input("number of chars:"))
 limit = int(input("number of words:"))
+count = 0
 
 text = list(''.join((string.ascii_lowercase,string.ascii_lowercase, string.digits, "_", ".")).strip())
 fileNum = 1
@@ -36,10 +37,9 @@ def generate():
     randomizedFile.write(''.join(word))
     randomizedFile.write("\n")
 tic = time.perf_counter() #Program timer start
-count = 0
 while count<=limit:
     count += 1
     generate()
 toc = time.perf_counter() #Program timer stop
 randomizedFile.close()
-print(f"Program finished in {toc - tic:0.4f} seconds")
+print(f">> {limit} users were generated and saved at \"randomizer {fileNum}.txt\" \n> Program finished in {toc - tic:0.4f} seconds")
